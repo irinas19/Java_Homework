@@ -1,7 +1,6 @@
 package ru.gb.jseminar;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Homework {
 
@@ -12,25 +11,34 @@ public class Homework {
 
     // Нужно удалить из него четные числа
     public List<Integer> removeNegativeValue(List<Integer> list){
+        Iterator<Integer> i = list.iterator();
 
-        return new ArrayList<>();
+        while (i.hasNext()) {
+            if (i.next() < 0)
+                i.remove();
+        }
+
+        return list;
     }
 
     // Найти минимальное значение
     public Integer getMin(List<Integer> list){
-
-        return 0;
+        return Collections.min(list);
     }
 
     // Найти максимальное значение
     public Integer getMax(List<Integer> list){
-
-        return 0;
+        return Collections.max(list);
     }
 
     // Найти среднее значение
     public Integer getAverage(List<Integer> list){
+        int sum = 0;
 
-        return 0;
+        for (int num: list) {
+            sum = num + sum;
+        }
+
+        return ((int) sum/list.size());
     }
 }
